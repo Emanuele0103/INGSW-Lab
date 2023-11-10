@@ -59,7 +59,6 @@ public class FunnyAlgorithms {
             }
             swap(array, min, i);
         }
-        System.out.println("ARRAY ORDINATO: " + Arrays.toString(array));
     }
 
     /**
