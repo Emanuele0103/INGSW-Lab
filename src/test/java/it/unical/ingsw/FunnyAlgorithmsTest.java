@@ -3,8 +3,7 @@ package it.unical.ingsw;
 import org.joda.time.DateTime;
 import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class FunnyAlgorithmsTest {
     private static FunnyAlgorithms f;
@@ -52,13 +51,21 @@ public class FunnyAlgorithmsTest {
         assertArrayEquals(descending, array);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void numberWrongSelectionSort() {
+    @Test
+    public void numberWrongSelectionSort(){
         array = new int[] {11,7,15,10,3,5,9};
         DateTime ora = new DateTime();
         System.out.println(ora);
         System.out.println("Eccezione -> numero richiesta ordinamento");
-        f.selectionSort(array,2);
+        assertThrows(IllegalArgumentException.class, () ->{
+                    f.selectionSort(array,2);
+        });
         System.out.println(ora);
+    }
+
+    @Test
+    public void binarySearchWorks(){
+        System.out.println("Testing that binarySearch works");
+        assertEquals(2, f.binarySearch(ascending, 10));
     }
 }
