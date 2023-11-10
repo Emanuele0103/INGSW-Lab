@@ -35,7 +35,41 @@ public class FunnyAlgorithmsTest {
         assertEquals(5421, f.stringToIntConverter("5421"));
         assertEquals(78, f.stringToIntConverter("78"));
     }
-
+    @Test
+    public void shouldCharStringToIntConverter(){
+        System.out.println("Testing that there are char in stringToIntConverter ");
+        assertThrows(UnsupportedOperationException.class, ()-> {
+            f.stringToIntConverter("52c63");
+        });
+    }
+    @Test
+    public void finalSpaceStringToIntConverter(){
+        System.out.println("Testing that there are space in stringToIntConverter ");
+        assertThrows(UnsupportedOperationException.class, ()-> {
+            f.stringToIntConverter("5263 ");
+        });
+    }
+    @Test
+    public void StringToIntConverterPositiveRange(){
+        System.out.println("Test that you have exceeded the positive range stringToIntConverter ");
+        assertThrows(UnsupportedOperationException.class, ()-> {
+            f.stringToIntConverter("50000");
+        });
+    }
+    @Test
+    public void StringToIntConverterNegativeRange(){
+        System.out.println("Test that you have exceeded the negative range stringToIntConverter ");
+        assertThrows(UnsupportedOperationException.class, ()-> {
+            f.stringToIntConverter("-50000");
+        });
+    }
+    @Test
+    public void StringToIntConverterRealNumber(){
+        System.out.println("Test that the number is real stringToIntConverter ");
+        assertThrows(UnsupportedOperationException.class, ()-> {
+            f.stringToIntConverter("26.541");
+        });
+    }
     @Test
     public void ascendingSelectionSortWorks(){
         System.out.println("Testing that selectionSort works");
