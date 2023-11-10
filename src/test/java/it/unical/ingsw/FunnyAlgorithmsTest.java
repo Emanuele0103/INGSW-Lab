@@ -10,7 +10,7 @@ public class FunnyAlgorithmsTest {
     private int[] array;
     private static int[] descending = new int[] {3,5,7,9,10,11,15};
     private static int[] ascending = new int[] {15,11,10,9,7,5,3};
-    @BeforeAll
+@BeforeAll
     public static void beforeAll(){ System.out.println("Before Class"); }
 
     @AfterAll
@@ -66,6 +66,13 @@ public class FunnyAlgorithmsTest {
     @Test
     public void binarySearchWorks(){
         System.out.println("Testing that binarySearch works");
-        assertEquals(2, f.binarySearch(ascending, 10));
+        assertEquals(4, f.binarySearch(descending, 10));
     }
+
+    @Test
+    public void errorBinarySearch(){
+        System.out.println("Testing that binarySearch doesn't works");
+        assertEquals(-1, f.binarySearch(descending, 60));
+    }
+
 }
